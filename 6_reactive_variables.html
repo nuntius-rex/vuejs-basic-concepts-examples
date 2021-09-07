@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Reactive Variables</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        template:`
+          <div><h1>Hello {{name}}! Are you there {{name}}?</h1></div>
+        `,
+        data:{
+          name:"Vue" //Setting a parameter
+        }
+      });
+
+      //To see the Vue object, check the browser console.
+      console.log(vm);
+      console.log(vm.$data.name);
+
+      setTimeout(function(){
+        vm.$data.name="George"
+      },2000)
+
+    </script>
+
+  </body>
+</html>

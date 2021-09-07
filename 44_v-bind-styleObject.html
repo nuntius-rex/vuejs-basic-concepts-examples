@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - v-bind:style Object</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          style:{
+            color:"red",
+            backgroundColor:"black",
+            fontSize:"30px"
+          }
+        },
+        methods:{
+
+        },
+        template:`
+          <div>
+            <p v-bind:style="style">Hello Vue!</p>
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

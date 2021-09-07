@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Components</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+      <!-- content will be written here -->
+    </div>
+
+    <script type="text/javascript">
+
+      //Note the Keyword "Hello":
+      Vue.component("Hello",{
+        template:`
+          <div>
+            <h1>Hello Vue!</h1>
+          </div>
+        `
+      });
+
+      var vm= new Vue({
+        el:"#root",
+        template:`<Hello/>` //Note the usage of the component keyword
+      });
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Two Way Binding - v-model</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          message:"Initial Message"
+        },
+        methods:{
+
+        },
+
+        /*
+        _NOTE: In the past we have used the v-on directive in concert with v-bind.
+        The difference with v-model is that the binding updates the model without
+        v-on or v-bind (two ways) and updates the data without an intermediate function.
+        */
+        template:`
+          <div>
+            <strong>Message (with v-model)</strong> :
+            <br><br>
+
+            <input type="text" v-model="message">
+            <br><br>
+
+            <strong>Message (with v-bind)</strong> :
+            <br><br>
+
+            <input type="text" v-bind:value="message">
+
+            <br><br><hr>
+
+            <strong>Message Entered:</strong>
+            <p>{{message}}</p>
+          </div>
+        `
+      })
+    </script>
+
+
+
+  </body>
+</html>

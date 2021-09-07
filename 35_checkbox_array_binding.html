@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Checkbox Array Binding</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          //checks:[], //does not need to be populated from main model population:
+          checks:["val1","val3"],
+          check1:false,
+          check2:false,
+          check3:false,
+        },
+        methods:{
+
+        },
+        template:`
+        <div>
+          <strong>Message (with v-model)</strong> :
+          <br><br>
+
+          <label for="id11">Check1</label>
+          <input id="id11" type="checkbox" value="val1" v-model="checks">
+          <br><br>
+
+          <label for="id12">Check2</label>
+          <input id="id12" type="checkbox" value="val2" v-model="checks">
+          <br><br>
+
+          <label for="id13">Check3</label>
+          <input id="id13" type="checkbox" value="val3" v-model="checks">
+          <br><br>
+          <hr>
+          <strong>Message (with v-bind)</strong> :
+          <br><br>
+
+          <label for="id21">Check</label>
+          <input id="id21" type="checkbox" v-bind:checked="check1">
+          <br><br>
+
+          <label for="id22">Check</label>
+          <input id="id22" type="checkbox" v-bind:checked="check2">
+          <br><br>
+
+          <label for="id23">Check</label>
+          <input id="id23" type="checkbox" v-bind:checked="check3">
+          <br><br><hr>
+
+          <strong>Message Entered:</strong>
+          <p>{{checks}}</p>
+
+          <p>{{check1}}, {{check2}}, {{check3}}</p>
+        </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

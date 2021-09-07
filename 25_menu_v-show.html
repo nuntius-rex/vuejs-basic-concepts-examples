@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Menu - v-show</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style media="screen">
+      #menu{
+        position:absolute; border:solid 1px; background-color:#ddd;
+      }
+
+      #menu ul{
+        list-style-type:none;
+        margin:0px;
+        padding:5px;
+      }
+
+      #menu li{
+        padding:5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          show: false
+        },
+        methods:{
+          click(event){
+            var menu=document.getElementById('menu');
+            console.log(event.pageX);
+            console.log(event.pageY);
+
+            //NOTE: Book has error. "px" is required for these settings:
+            menu.style.left=event.pageX+"px";
+            menu.style.top=event.pageY+"px";
+
+            console.log(menu.style);
+            console.log(menu.style.left);
+            console.log(menu.style.top);
+
+            this.show=true;
+          },
+          hide(){
+            this.show=false;
+          }
+
+        },
+        template:`
+          <div v-on:click="hide()" style="height:1000px; border:solid 1px;" >
+            <div id="menu" v-show="show">
+
+              <ul>
+                <li> <a href="http://yahoo.com">Yahoo</a> </li>
+                <li> <a href="http://google.com">Google</a> </li>
+                <li> <a href="http://bing.com">Bing</a> </li>
+              </ul>
+
+            </div>
+            <button v-on:click.stop="click($event)">Search Engines</button>
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

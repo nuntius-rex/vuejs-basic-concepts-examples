@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Self Modifier</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+
+        },
+        methods:{
+          click(){
+            //console.log("Do not click on 'Vue'");
+            console.log("You clicked on the parent element, not the 'Vue' <span> ");
+          }
+        },
+        template:`
+          <div v-on:click.self="click($event)" style="font-size:20px">
+            Hello <span style="padding:3px; background-color:red; color:white">Vue</span>!!!
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

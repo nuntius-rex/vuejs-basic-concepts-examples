@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Select Binding</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          select1:"sel12",
+          select2:"sel23"
+        },
+        methods:{
+
+        },
+        template:`
+          <div>
+
+            <strong>Select (with v-model)</strong>
+            <p>
+              <select v-model="select1">
+                <option value="sel11">Selection 11</option>
+                <option value="sel12">Selection 12</option>
+                <option value="sel13">Selection 13</option>
+                <option>Selection 14</option>
+              </select>
+            </p>
+
+
+            <strong>Select (with v-model)</strong>
+            <p>
+              <select v-bind:value="select2">
+                <option value="sel21">Selection 21</option>
+                <option value="sel22">Selection 22</option>
+                <option value="sel23">Selection 23</option>
+                <option>Selection 24</option>
+              </select>
+            </p>
+            <hr>
+            <p>v-model:<br>{{select1}}</p>
+            <p>v-bind:<br>{{select2}}</p>
+
+
+          </div>
+        `
+      })
+    </script>
+
+
+
+
+
+
+  </body>
+</html>

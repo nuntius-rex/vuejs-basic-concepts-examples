@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Using Template</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+
+      Vue.component("Timer",{
+          data(){
+            return {
+              min:this.minutes,
+              sec:this.seconds
+            }
+          },
+          props:[
+            "minutes",
+            "seconds"
+          ],
+          computed:{
+            time(){
+              var min=this.min;
+              var sec=this.sec;
+              if(min<10){
+                min="0"+min;
+              }
+              if(sec<10){
+                sec="0"+sec;
+              }
+              return min+":"+sec;
+            }
+          },
+          created(){
+            var timer=setInterval(()=>{
+
+              if(this.sec<0){
+                this.min-=1;
+                if(this.min<0){
+                  this.min=0;
+                  this.sec=0;
+                  clearInterval(timer);
+                }
+              }else {
+                if(this.sec==0 && this.min>=0){
+                  this.sec=60;//Will be set to 59
+                }
+              }
+              this.sec-=1;
+            }, 1000)
+          },
+          template:`
+          <div>
+            <div v-if="sec||min">
+              Remaining Time {{time}}
+            </div>
+            <div v-else>End of Timer</div>
+          </div>
+          `
+      });
+
+
+      var vm = new Vue({
+        el: '#root',
+        template:`
+          <Timer minutes="1" seconds="5"/>
+        `
+      })
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Events Properties</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          x:0,
+          y:0
+        },
+        methods:{
+          mousedown(event){
+            this.x=event.pageX;
+            this.y=event.pageY;
+          },
+          mousemove(event){
+            if(event.which==1){
+              var canvas=document.getElementById('canvas');
+              var ctx=canvas.getContext("2d");
+              ctx.beginPath();
+              ctx.moveTo(this.x, this.y);
+              ctx.lineTo(event.clientX, event.clientY);
+              ctx.stroke();
+              ctx.closePath();
+              this.x=event.clientX;
+              this.y=event.clientY;
+            }
+          }
+        },
+        template:`
+          <div>
+            <canvas id="canvas"
+              style="position:absolute; top:0px;left:0px; border:solid red 1px;"
+              v-on:mousemove="mousemove($event)"
+              v-on:mousedown="mousedown($event)"
+            >
+            </canvas>
+          </div>
+        `
+      })
+    </script>
+
+
+
+  </body>
+</html>

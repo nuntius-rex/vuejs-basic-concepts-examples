@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Number Modifier</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          count: 10
+        },
+        methods:{
+
+        },
+        template:`
+          <div>
+            <p>
+              <strong>Quantity (with v-model)</strong><br>
+              <!-- input type="text" v-model="count" -->
+
+              <input type="text" v-model.number="count">
+            </p>
+            <p>
+              <strong>Quantity Entered</strong><br>
+              {{count}}
+            </p>
+            <p>
+              <strong>Quantity Entered + 1</strong><br>
+              <!-- without the number modifier, the values will concatinate instead of add -->
+              {{count+1}}
+            </p>
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

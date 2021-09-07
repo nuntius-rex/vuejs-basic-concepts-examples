@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - One Way Binding - External</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          time:"..."
+        },
+        methods:{
+
+        },
+        template:`
+          <div>
+            It is {{time}}
+          </div>
+        `
+      });
+
+      setInterval(function(){
+        vm.time=(new Date()).toTimeString().split(" ")[0];
+      },1000);
+    </script>
+
+
+  </body>
+</html>

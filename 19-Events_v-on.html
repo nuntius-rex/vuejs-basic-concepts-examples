@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Events - v-on</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          value:0
+        },
+        methods:{
+          incr(step){
+            step=step||1,
+            this.value+=step;
+          },
+          decr(step){
+            step=step||1,
+            this.value-=step;
+          }
+        },
+        template:`
+          <div>
+            Value {{value}}
+              <button v-on:click="incr()"> + </button>
+              <button v-on:click="decr()"> - </button>
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

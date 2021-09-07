@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VueJS Browser</title>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- production version, optimized for size and speed -->
+    <!-- script src="https://cdn.jsdelivr.net/npm/vue@2"></script -->
+
+    <!-- ALTERNAT PUBLIC REPO: -->
+    <!-- script src="https://unpkg.com/vue"></script -->
+    <!-- book uses https:cdn.jsdelivr.net/npm/vue/dist/vue.js -->
+
+  </head>
+  <body>
+
+    <div id="app">
+      {{ message }} {{test}}
+    </div>
+
+    <script type="text/javascript">
+
+      /*
+        Call Vue as a new instance and pass it and object as instructions:
+
+        el: is the element we and to target (note the query-style reference, in the book uses the long form js.)
+
+        data: send the data we want to write as an objects
+
+      */
+      var app = new Vue({
+        el: '#app', //document.getElementById('app')
+        data: {
+          message: 'Hello Vue!'
+        }
+      })
+    </script>
+
+
+  </body>
+</html>

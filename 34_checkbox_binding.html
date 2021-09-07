@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkbox Binding</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          check:"false"
+        },
+        methods:{
+
+        },
+        template:`
+        <div>
+          <strong>Message (with v-model)</strong> :
+          <br><br>
+
+          <label for="id1">Check</label>
+          <input id="id1" type="checkbox" v-model="check">
+          <br><br>
+
+          <strong>Message (with v-bind)</strong> :
+          <br><br>
+
+          <label for="id2">Check</label>
+          <input id="id2" type="checkbox" v-bind:checked="check">
+
+          <br><br><hr>
+
+          <strong>Message Entered:</strong>
+          <p>{{check}}</p>
+        </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

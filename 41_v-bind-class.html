@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - v-bind class</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style media="screen">
+      .backColor{
+        background-color: red;
+      }
+      .bigSize{
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          classes:{
+            backColor:true,
+            bigSize:true
+          }
+        },
+        methods:{
+
+        },
+        template:`
+          <div>
+            <button type="button" v-on:click="classes.backColor=!classes.backColor">Toggle BackColor</button>
+            <button type="button" v-on:click="classes.bigSize=!classes.bigSize">Toggle Font Size</button>
+            <p v-bind:class="classes">Hello Vue!</p>
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Once Modifier</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+
+        },
+        methods:{
+          click(event){
+            console.log(event);
+            console.log("You can only click me just this once!");
+          }
+        },
+        template:`
+          <button v-on:click.once=click($event) >Once</button>
+        `
+      })
+    </script>
+
+
+  </body>
+</html>

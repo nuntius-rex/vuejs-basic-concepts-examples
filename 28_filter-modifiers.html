@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Filter Modifiers</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+
+        },
+        methods:{
+          keydown(event){
+            console.log(event.key);
+          }
+        },
+        template:`
+        <div>
+          <p>Filter all input but the keys allowed (y,n):</p>
+          <input type="text" v-on:keydown.y.n="keydown($event)">
+        </div>
+
+        `
+      })
+    </script>
+
+  </body>
+</html>

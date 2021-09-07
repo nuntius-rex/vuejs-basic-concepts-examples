@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Only one root element</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        //template:"<h1>Hello Vue!</h1><h1>Hello Vue!</h1>" //Will throw an error!
+        template:"<div><h1>Hello Vue!</h1><h1>Hello Vue!</h1></div>"
+      })
+    </script>
+
+  </body>
+</html>

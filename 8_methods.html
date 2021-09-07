@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Methods</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        template: `
+        <div class="">
+          {{display_header()}}
+
+        </div>
+        `,
+        data:{
+          welcome:"Hello",
+          name:"Dan"
+        },
+        methods:{
+          display_header:function(){
+            return this.welcome+" "+this.name;
+          }
+          /*
+            // ES6 Class syntax:
+            display_header(){
+              return this.welcome+" "+this.name;
+            }
+
+          */
+
+        }
+
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js preventDefault</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+
+        },
+        methods:{
+          keydown(event){
+            console.log(event.key);
+            //_NOTE: Filtering is case sensitive!
+            if(event.key!="y" && event.key!="n"){
+              event.preventDefault();
+            }
+          }
+        },
+        template:`
+        <div>
+          <p>Prevent entry of keys other than allowed (y,n):</p>
+          <input type="text" v-on:keydown="keydown($event)">
+        </div>
+
+        `
+      })
+    </script>
+
+  </body>
+</html>

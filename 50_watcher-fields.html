@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Watching Fields</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          text:"",
+          error:false
+        },
+        methods:{
+
+        },
+        watch:{
+          text(newValue, oldValue){
+            if(newValue.length>=6){
+              this.text=oldValue;
+              this.error=true;
+            }
+          }
+        },
+        template:`
+          <div>
+            <strong>Text (max length 5)</strong><br>
+            <input type="text" v-model="text"><br><br>
+            <span style="color:red" v-show="error">Max length 5 chars!</span>
+            <hr><br>
+            {{text}}
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

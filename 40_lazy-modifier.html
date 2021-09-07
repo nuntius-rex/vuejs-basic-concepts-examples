@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Lazy Modifier</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          text:""
+        },
+        methods:{
+          display_spaces(){
+            var ret="";
+            for (var i = 0; i < this.text.length; i++) {
+              var a=this.text.charAt(i);
+              if(a==" "){
+                a="_";
+              }
+              ret+=a;
+            }//end for
+            return ret;
+          }
+        },
+        template:`
+          <div>
+            <strong>Text (with v-model)</strong>
+            <p>
+              <!-- only updates when focus leaves the input (hit tab, etc.) -->
+              <input type="text" v-model.lazy="text">
+            </p>
+            <strong>Text Entered</strong>
+            <p>
+              {{display_spaces(text)}}
+            </p>
+            <strong>Characters Entered</strong>
+            <p>
+              {{text.length}}
+            </p>
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

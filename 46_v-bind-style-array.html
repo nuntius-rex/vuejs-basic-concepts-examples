@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - v-bind Style Array</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          style1:{
+            color:"red",
+            backgroundColor:"black",
+          },
+          style2:{
+            fontSize:"30px"
+          }
+        },
+        methods:{
+
+        },
+        template:`
+          <div>
+            <p v-bind:style="[style1, style2]">Hello Vue</p>
+          </div>        `
+      })
+    </script>
+
+  </body>
+</html>

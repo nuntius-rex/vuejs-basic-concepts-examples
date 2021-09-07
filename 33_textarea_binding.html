@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Textarea Binding</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          message:"Initial Message"
+        },
+        methods:{
+
+        },
+        template:`
+        <div>
+          <strong>Message (with v-model)</strong> :
+          <br><br>
+
+          <textarea v-model="message" rows="8" cols="80"></textarea>
+          <br><br>
+
+          <strong>Message (with v-bind)</strong> :
+          <br><br>
+
+          <textarea v-bind:value="message" rows="8" cols="80"></textarea>
+
+          <br><br><hr>
+
+          <strong>Message Entered (preserving line breaks):</strong>
+          <p style="white-space:pre-line">{{message}}</p>
+        </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

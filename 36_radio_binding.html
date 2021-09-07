@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Radio Binding</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          radio:"val1",
+          radio1: false,
+          radio2: true,
+          radio3: false,
+        },
+        methods:{
+
+        },
+        template:`
+
+          <div>
+            <strong>Radios (with v-model)</strong>
+            <p>
+              <label for="id11"></label><br>
+              <input id="id11" type="radio" value="val1" v-model="radio">
+            </p>
+            <p>
+              <label for="id12"></label><br>
+              <input id="id12" type="radio" value="val2" v-model="radio">
+            </p>
+            <p>
+              <label for="id13"></label><br>
+              <input id="id13" type="radio" value="val3" v-model="radio">
+            </p>
+
+            <strong>Radios (with v-bind)</strong>
+
+            <p>
+              <label for="id21"></label><br>
+              <input id="id21" type="radio" v-bind:checked="radio1">
+            </p>
+            <p>
+              <label for="id22"></label><br>
+              <input id="id22" type="radio" v-bind:checked="radio2">
+            </p>
+            <p>
+              <label for="id23"></label><br>
+              <input id="id23" type="radio" v-bind:checked="radio3">
+            </p>
+
+
+
+
+
+            <p><hr></p>
+            <p>{{radio}}</p>
+            <p>{{radio1}},{{radio2}},{{radio3}} </p>
+
+          </div>
+        `
+      })
+    </script>
+
+
+
+  </body>
+</html>

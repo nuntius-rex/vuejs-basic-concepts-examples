@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Events Properties</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          x:0,
+          y:0
+        },
+        methods:{
+          mousemove(event){
+            this.x=event.pageX;
+            this.y=event.pageY;
+          }
+        },
+        template:`
+          <div style="width:100%; min-height:1000px; border:solid 1px;"
+            v-on:mousemove="mousemove($event)">
+            X:{{x}}
+            Y:{{y}}
+          </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

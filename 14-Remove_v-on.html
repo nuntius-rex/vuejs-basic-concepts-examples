@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Remove Element - v-on Directive</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style media="screen">
+      .trash{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="root">
+      <!-- content will be written here -->
+    </div>
+
+    <script type="text/javascript">
+
+      var vm= new Vue({
+        el:"#root",
+        data:{
+          elements:[
+            "Element 1",
+            "Element 2",
+            "Element 3",
+            "Element 4",
+            "Element 5",
+          ]
+        },
+        methods:{
+          remove(index){
+            console.log("click on index"+index);
+            this.elements=this.elements.filter(function(element, i){
+              if(i==index){
+                return false;
+              }else {
+                return true
+              }
+            });
+          }
+        },
+        template:`
+          <div>
+            <ul>
+              <li v-for="(element, index) in elements">{{element}}
+              <span class='trash' v-on:click="remove(index)">&#x1f5d1;</span>
+              </li>
+            </ul>
+            <div v-if="elements.length==0">Empty list</div>
+          </div>
+        `
+      });
+
+    </script>
+
+  </body>
+</html>

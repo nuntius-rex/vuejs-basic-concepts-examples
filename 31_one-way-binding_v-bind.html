@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Using Template</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          time:"..."
+        },
+        methods:{
+
+        },
+        //_NOTE: Lifecycle
+        created(){
+          setInterval(()=>{
+            this.time=(new Date()).toTimeString().split(" ")[0];
+          },1000);
+        },
+        template:`
+          <div>
+            It is {{time}} <br><br>
+            <span v-bind:title="time">
+              You can also position the mouse over this text to see the time.
+            </span><br>
+            <input type="text" v-bind:value="time">
+
+            <!-- 
+              NOTE: The following does not work:
+              <input type="text" value="{{time}}">
+             -->
+
+          </div>
+        `
+      });
+
+
+    </script>
+
+  </body>
+</html>

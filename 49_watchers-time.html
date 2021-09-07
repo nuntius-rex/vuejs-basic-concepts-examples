@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Watcher - Time</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          date: new Date()
+        },
+        methods:{
+
+        },
+        created(){
+          setInterval(()=>{
+            this.date=new Date()
+          },1000);
+        },
+        watch:{
+          hhmmss(newValue, oldValue){
+            //console.log(oldValue);
+            console.log(newValue);
+          },
+          //date(newValue, oldValue){
+          //  console.log("date changed");
+          //  console.log(oldValue);
+          //  console.log(newValue);
+          //}
+        },
+        computed:{
+          hhmmss(){
+            return this.date.toTimeString().split(" ")[0];
+          }
+        },
+        template:`
+        <div>
+          <p>
+            <strong>Time:</strong><br>
+            {{hhmmss}}
+          </p>
+
+        </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>

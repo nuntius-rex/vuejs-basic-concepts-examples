@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Conditionals: v-if, v-else, v-else-if Directives</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+      <!-- content will be written here -->
+    </div>
+
+    <script type="text/javascript">
+
+      var vm= new Vue({
+        el:"#root",
+        data:{
+          elements:[
+            "Element 1",
+            "Element 2",
+            "Element 3",
+            "Element 4",
+            "Element 5",
+          ]
+        },
+        template:`
+          <div>
+            <ul>
+              <li v-for="element in elements">{{element}}</li>
+            </ul>
+
+            <p>Without v-for the variable is just output as an array string into the template:</p>
+            {{elements}}
+
+            <ul>
+              <li v-for="(element, index) in elements">Index: {{index}} Value:{{element}}
+
+                <!--
+                Conditional test:
+                <span v-if="index!=elements.length -1 "> - Not Last! </span>
+                <span v-if="index==elements.length -1 "> - Last One!</span>
+                -->
+
+                <span v-if="index==elements.length -1 ">.</span>
+                <span v-else-if="index==elements.length -2 ">;</span>
+                <span v-else>,</span>
+
+              </li>
+            </ul>
+          </div>
+        `
+      });
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,5 @@
+
+The following examples were coded by Dan Guinn, from the book Vue.js Basic Concepts, 2021 Edition.
+The code examples skip the first chapter 1, as these are covered in an earlier course.
+
+A portion of these, or variations thereof, combined with other examples, will be utilized in some form in the class.

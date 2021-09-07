@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js - Computed Date</title>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="root">
+        <!-- content will be written here -->
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#root',
+        data:{
+          date: new Date()
+        },
+        methods:{
+
+        },
+        created(){
+          setInterval(()=>{
+            this.date=new Date()
+          },1000);
+        },
+        computed:{
+          hhmmss(){
+            return this.date.toTimeString().split(" ")[0]
+          },
+          ddmmyyyy(){
+            var day=this.date.getDate();
+            var month=this.date.getMonth()+1;
+            var year=this.date.getFullYear();
+            if(day<10){
+              day="0"+day;
+            }
+            if(month<10){
+              month="0"+month;
+            }
+            return `${day}-${month}-${year}`;
+          }
+        },
+        template:`
+        <div>
+          <p>
+            <strong>Full Date:</strong><br>
+            {{date}}
+          </p>
+          <p>
+            <strong>Date format DD-MM-YYYY:<br> {{ddmmyyyy}} {{hhmmss}}</strong>
+          </p>
+
+        </div>
+        `
+      })
+    </script>
+
+  </body>
+</html>
